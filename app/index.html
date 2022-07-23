@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <title>Gerenciador de Tarefas</title>
+  </head>
+  <body>
+    <main class="todo">
+      <ul id="container-item">
+       
+      </ul>
+      <form class="todo__text" onSubmit="return false">
+        <input type="text" placeholder="Escreva sua tarefa." id="input_text" />
+        <button class="add" onclick="add()"></button>
+      </form>
+    </main>
+    <script src="app.js">
+      let teste = document.querySelector('#input_text');
+    </script>
+  </body>
+</html>

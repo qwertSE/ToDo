@@ -1,0 +1,76 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  width: 100vw;
+  background-color: brown;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: aliceblue;
+
+  width: 600px;
+  height: 500px;
+}
+
+.todo__item {
+  display: flex;
+
+  text-align: center;
+}
+
+.check {
+  background-image: url("../icons/done.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  border: none;
+
+  height: 30px;
+  width: 30px;
+}
+
+.del {
+  background-image: url("../icons/delete.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  border: none;
+
+  height: 30px;
+  width: 30px;
+}
+
+.add {
+  background-image: url("../icons/add.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  border: none;
+
+  height: 25px;
+  width: 25px;
+
+  margin-left: 0.3rem;
+}
+
+.text{
+  margin: 0 0.5rem 0 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.done{
+  text-decoration: line-through;
+}
+
+.todo__text{
+  display: flex;
+}
+
