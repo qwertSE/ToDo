@@ -1,4 +1,4 @@
-var listElements: string[] = [];
+var listElements: number[] = [];
 
 function add(): void {
   const inputText = document.getElementById("input_text") as HTMLInputElement;
@@ -9,7 +9,7 @@ function add(): void {
   <button class="del" onclick="removeItem(${listElements.length})"></button>
 </div>`;
 
-  listElements.push(item);
+  listElements.push(listElements.length);
   var ul = document.getElementById("container-item");
   var li = document.createElement("li");
 
@@ -33,5 +33,7 @@ function removeItem(id: number) {
   var element = document.getElementById(`div${id}`);
   element.remove();
 
-  listElements.pop();
+  listElements.forEach((element) => {
+    console.log(element);
+  });
 }
