@@ -1,4 +1,15 @@
-var listElements: number[] = [];
+var listElements: string[] = [];
+
+
+/* Layout Tarefas
+
+<div class="todo__item" id="">
+  <button class="check" onclick=""></button>
+  <h2 class="text" id="">text</h2>
+  <button class="del" onclick=""></button>
+</div>` 
+
+*/
 
 function add(): void {
   const inputText = document.getElementById("input_text") as HTMLInputElement;
@@ -9,7 +20,7 @@ function add(): void {
   <button class="del" onclick="removeItem(${listElements.length})"></button>
 </div>`;
 
-  listElements.push(listElements.length);
+  listElements.push(inputText.value);
   var ul = document.getElementById("container-item");
   var li = document.createElement("li");
 
@@ -31,9 +42,7 @@ function check(id: number): void {
 
 function removeItem(id: number) {
   var element = document.getElementById(`div${id}`);
+  listElements.splice(listElements.indexOf(element.innerText), 1);
   element.remove();
-
-  listElements.forEach((element) => {
-    console.log(element);
-  });
+  console.log(listElements)
 }
