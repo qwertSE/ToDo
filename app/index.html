@@ -8,13 +8,19 @@
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Gerenciador de Tarefas</title>
   </head>
   <body>
     <main class="todo">
-      <ul id="container-item">
-       
-      </ul>
+      <h2 class="title">ToDo List</h2>
+      <ul id="container-item"></ul>
       <form class="todo__text" onSubmit="return false">
         <input type="text" placeholder="Escreva sua tarefa." id="input_text" />
         <button class="add" onclick="add()"></button>
