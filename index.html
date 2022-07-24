@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./app/assets/css/reset.css" />
+    <link rel="stylesheet" href="./app/assets/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Gerenciador de Tarefas</title>
+  </head>
+  <body>
+    <main class="todo">
+      <h2 class="title">ToDo List</h2>
+      <ul id="container-item"></ul>
+      <form class="todo__text" onSubmit="return false">
+        <input type="text" placeholder="Escreva sua tarefa." id="input_text" />
+        <button class="add" onclick="add()"></button>
+      </form>
+    </main>
+    <script src="./app/app.js">
+      let teste = document.querySelector('#input_text');
+    </script>
+  </body>
+</html>
