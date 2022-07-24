@@ -20,7 +20,7 @@ function add() {
 }
 function check(id) {
     var texto = document.getElementById("" + id);
-    console.log(texto.classList);
+    /* console.log(texto.classList); */
     if (texto.classList.contains("done")) {
         texto.classList.remove("done");
     }
@@ -32,5 +32,5 @@ function removeItem(id) {
     var element = document.getElementById("div" + id);
     listElements.splice(listElements.indexOf(element.innerText), 1);
     element.remove();
-    console.log(listElements);
+    /* console.log(listElements) */
 }

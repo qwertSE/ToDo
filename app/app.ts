@@ -26,12 +26,14 @@ function add(): void {
 
   li.innerHTML = item;
   ul.appendChild(li);
+  
   /* console.log(text[0].innerHTML = inputText.value); */
 }
 
 function check(id: number): void {
   const texto = document.getElementById(`${id}`);
-  console.log(texto.classList);
+
+  /* console.log(texto.classList); */
 
   if (texto.classList.contains("done")) {
     texto.classList.remove("done");
@@ -44,5 +46,6 @@ function removeItem(id: number) {
   var element = document.getElementById(`div${id}`);
   listElements.splice(listElements.indexOf(element.innerText), 1);
   element.remove();
-  console.log(listElements)
+
+  /* console.log(listElements) */
 }
