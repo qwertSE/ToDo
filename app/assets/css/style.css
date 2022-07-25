@@ -86,6 +86,22 @@ background-color: #ffffff;
   margin-left: 0.3rem;
 }
 
+.update {
+  background-image: url("../icons/update.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  border: 1px solid #000000;
+
+  border-radius: 50%;
+
+  height: 25px;
+  width: 25px;
+
+  margin: 0.2rem 0 0 0.3rem;
+  
+}
+
 .text {
   margin: 0 0.5rem 0 0.5rem;
   padding-top: 0.5rem;
@@ -111,5 +127,5 @@ background-color: #ffffff;
   text-align: center;
 
   width: 240px;
-  
+  height: 25px;
 }

@@ -1,6 +1,5 @@
 var listElements: string[] = [];
 
-
 /* Layout Tarefas
 
 <div class="todo__item" id="">
@@ -18,6 +17,7 @@ function add(): void {
   <button class="check" onclick="check(${listElements.length})"></button>
   <h2 class="text" id="${listElements.length}">${inputText.value}</h2>
   <button class="del" onclick="removeItem(${listElements.length})"></button>
+  <button class="update" onclick="updateItem(${listElements.length})"></button>
 </div>`;
 
   listElements.push(inputText.value);
@@ -26,8 +26,23 @@ function add(): void {
 
   li.innerHTML = item;
   ul.appendChild(li);
-  
+
   /* console.log(text[0].innerHTML = inputText.value); */
+}
+
+function removeItem(id: number): void {
+  var element = document.getElementById(`div${id}`);
+  listElements.splice(listElements.indexOf(element.innerText), 1);
+  element.remove();
+
+  /* console.log(listElements) */
+}
+
+function updateItem(id: string): void {
+  const inputText = document.getElementById("input_text") as HTMLInputElement;
+  document.getElementById(id).innerText = inputText.value;
+  listElements[parseInt(id)] = inputText.value;
+  console.log(listElements);
 }
 
 function check(id: number): void {
@@ -40,12 +55,4 @@ function check(id: number): void {
   } else {
     texto.classList.add("done");
   }
-}
-
-function removeItem(id: number) {
-  var element = document.getElementById(`div${id}`);
-  listElements.splice(listElements.indexOf(element.innerText), 1);
-  element.remove();
-
-  /* console.log(listElements) */
 }
