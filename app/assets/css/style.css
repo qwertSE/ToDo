@@ -27,7 +27,7 @@ body {
   background-color: #000000;
   color: var(--gold);
 
-  width: 200px;
+  width: 280px;
   height: 50px;
   padding-top: 2rem;
   margin-bottom: 0.5rem;
@@ -36,6 +36,10 @@ body {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 5px;
+}
+
+li{
+background-color: #ffffff;
 }
 
 .todo__item {
@@ -91,7 +95,6 @@ body {
   font-family: var(--font);
   font-weight:lighter;
   text-align: center;
-  background-color: #caa200;
 }
 
 .done {
@@ -106,4 +109,7 @@ body {
 #input_text{
   border-radius: 4px;
   text-align: center;
+
+  width: 240px;
+  
 }
