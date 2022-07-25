@@ -1,4 +1,5 @@
 var listElements: string[] = [];
+const inputText = document.getElementById("input_text") as HTMLInputElement;
 
 /* Layout Tarefas
 
@@ -11,7 +12,6 @@ var listElements: string[] = [];
 */
 
 function add(): void {
-  const inputText = document.getElementById("input_text") as HTMLInputElement;
 
   let item = `<div class="todo__item" id="div${listElements.length}">
   <button class="check" onclick="check(${listElements.length})"></button>
@@ -39,10 +39,9 @@ function removeItem(id: number): void {
 }
 
 function updateItem(id: string): void {
-  const inputText = document.getElementById("input_text") as HTMLInputElement;
   document.getElementById(id).innerText = inputText.value;
   listElements[parseInt(id)] = inputText.value;
-  console.log(listElements);
+  /* console.log(listElements); */
 }
 
 function check(id: number): void {

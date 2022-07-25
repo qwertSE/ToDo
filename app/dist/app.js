@@ -1,6 +1,6 @@
 var listElements = [];
+const inputText = document.getElementById("input_text");
 function add() {
-    const inputText = document.getElementById("input_text");
     let item = `<div class="todo__item" id="div${listElements.length}">
   <button class="check" onclick="check(${listElements.length})"></button>
   <h2 class="text" id="${listElements.length}">${inputText.value}</h2>
@@ -19,10 +19,8 @@ function removeItem(id) {
     element.remove();
 }
 function updateItem(id) {
-    const inputText = document.getElementById("input_text");
     document.getElementById(id).innerText = inputText.value;
     listElements[parseInt(id)] = inputText.value;
-    console.log(listElements);
 }
 function check(id) {
     const texto = document.getElementById(`${id}`);
