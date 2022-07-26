@@ -1,16 +1,29 @@
 var listElements = [];
 const inputText = document.getElementById("input_text");
+var db = localStorage;
+var index;
 function add() {
+    index = String(listElements.length);
     createElement(inputText.value);
+    db.setItem(index, inputText.value);
 }
 function removeItem(id) {
     var element = document.getElementById(`div${id}`);
+    db.clear();
     listElements.splice(listElements.indexOf(element.innerText), 1);
-    element.remove();
+    for (let i = 0; i < listElements.length; i++) {
+        index = String(i);
+        db.setItem(index, listElements[i]);
+    }
+    location.reload();
 }
 function updateItem(id) {
     document.getElementById(id).innerText = inputText.value;
     listElements[parseInt(id)] = inputText.value;
+    listElements[Number(id)] = inputText.value;
+    db.setItem(id, inputText.value);
+    loadDb();
+    location.reload();
 }
 function check(id) {
     const texto = document.getElementById(`${id}`);
@@ -34,3 +47,14 @@ function createElement(value) {
     li.innerHTML = item;
     ul.appendChild(li);
 }
+function loadDb() {
+    let dbSize = db.length;
+    let temp;
+    if (listElements.length === 0) {
+        for (let i = 0; i < dbSize; i++) {
+            temp = db.getItem(String(i));
+            createElement(temp);
+        }
+    }
+}
+loadDb();

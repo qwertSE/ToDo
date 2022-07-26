@@ -1,5 +1,7 @@
 var listElements: string[] = [];
 const inputText = document.getElementById("input_text") as HTMLInputElement;
+var db = localStorage;
+var index: string;
 
 /* Layout Tarefas
 
@@ -13,13 +15,22 @@ const inputText = document.getElementById("input_text") as HTMLInputElement;
 
 /* Criando um elemento pela primeira vez usando o layout. */
 function add(): void {
+  index = String(listElements.length);
   createElement(inputText.value);
+
+  db.setItem(index, inputText.value);
 }
 
 function removeItem(id: number): void {
   var element = document.getElementById(`div${id}`);
+
+  db.clear();
   listElements.splice(listElements.indexOf(element.innerText), 1);
-  element.remove();
+  for (let i = 0; i < listElements.length; i++) {
+    index = String(i);
+    db.setItem(index, listElements[i]);
+  }
+  location.reload();
 
   /* console.log(listElements) */
 }
@@ -28,9 +39,10 @@ function updateItem(id: string): void {
   document.getElementById(id).innerText = inputText.value;
   listElements[parseInt(id)] = inputText.value;
 
-  /* Testes para implementar o localstorage. */
-  /* console.log(listElements); */
-  /* location.reload(); */
+  listElements[Number(id)] = inputText.value;
+  db.setItem(id, inputText.value);
+  loadDb();
+  location.reload();
 }
 
 function check(id: number): void {
@@ -60,3 +72,16 @@ function createElement(value: string): void {
   li.innerHTML = item;
   ul.appendChild(li);
 }
+
+function loadDb() {
+  let dbSize = db.length;
+  let temp: string;
+  if (listElements.length === 0) {
+    for (let i = 0; i < dbSize; i++) {
+      temp = db.getItem(String(i));
+      createElement(temp);
+    }
+  }
+}
+
+loadDb();
