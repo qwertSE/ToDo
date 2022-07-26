@@ -11,23 +11,9 @@ const inputText = document.getElementById("input_text") as HTMLInputElement;
 
 */
 
+/* Criando um elemento pela primeira vez usando o layout. */
 function add(): void {
-
-  let item = `<div class="todo__item" id="div${listElements.length}">
-  <button class="check" onclick="check(${listElements.length})"></button>
-  <h2 class="text" id="${listElements.length}">${inputText.value}</h2>
-  <button class="del" onclick="removeItem(${listElements.length})"></button>
-  <button class="update" onclick="updateItem(${listElements.length})"></button>
-</div>`;
-
-  listElements.push(inputText.value);
-  var ul = document.getElementById("container-item");
-  var li = document.createElement("li");
-
-  li.innerHTML = item;
-  ul.appendChild(li);
-
-  /* console.log(text[0].innerHTML = inputText.value); */
+  createElement(inputText.value);
 }
 
 function removeItem(id: number): void {
@@ -41,7 +27,10 @@ function removeItem(id: number): void {
 function updateItem(id: string): void {
   document.getElementById(id).innerText = inputText.value;
   listElements[parseInt(id)] = inputText.value;
+
+  /* Testes para implementar o localstorage. */
   /* console.log(listElements); */
+  /* location.reload(); */
 }
 
 function check(id: number): void {
@@ -54,4 +43,20 @@ function check(id: number): void {
   } else {
     texto.classList.add("done");
   }
+}
+
+function createElement(value: string): void {
+  let item = `<div class="todo__item" id="div${listElements.length}">
+  <button class="check" onclick="check(${listElements.length})"></button>
+  <h2 class="text" id="${listElements.length}">${value}</h2>
+  <button class="del" onclick="removeItem(${listElements.length})"></button>
+  <button class="update" onclick="updateItem(${listElements.length})"></button>
+</div>`;
+
+  listElements.push(value);
+  let ul = document.getElementById("container-item");
+  let li = document.createElement("li");
+
+  li.innerHTML = item;
+  ul.appendChild(li);
 }

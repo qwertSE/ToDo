@@ -38,8 +38,8 @@ body {
   letter-spacing: 5px;
 }
 
-li{
-background-color: #ffffff;
+li {
+  background-color: #000000;
 }
 
 .todo__item {
@@ -99,7 +99,6 @@ background-color: #ffffff;
   width: 25px;
 
   margin: 0.2rem 0 0 0.3rem;
-  
 }
 
 .text {
@@ -107,9 +106,9 @@ background-color: #ffffff;
   padding-top: 0.5rem;
   min-width: 200px;
 
-
+  color: var(--gold);
   font-family: var(--font);
-  font-weight:lighter;
+  font-weight: lighter;
   text-align: center;
 }
 
@@ -122,7 +121,7 @@ background-color: #ffffff;
   margin-left: 1rem;
 }
 
-#input_text{
+#input_text {
   border-radius: 4px;
   text-align: center;
 

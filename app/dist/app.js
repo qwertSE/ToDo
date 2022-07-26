@@ -1,17 +1,7 @@
 var listElements = [];
 const inputText = document.getElementById("input_text");
 function add() {
-    let item = `<div class="todo__item" id="div${listElements.length}">
-  <button class="check" onclick="check(${listElements.length})"></button>
-  <h2 class="text" id="${listElements.length}">${inputText.value}</h2>
-  <button class="del" onclick="removeItem(${listElements.length})"></button>
-  <button class="update" onclick="updateItem(${listElements.length})"></button>
-</div>`;
-    listElements.push(inputText.value);
-    var ul = document.getElementById("container-item");
-    var li = document.createElement("li");
-    li.innerHTML = item;
-    ul.appendChild(li);
+    createElement(inputText.value);
 }
 function removeItem(id) {
     var element = document.getElementById(`div${id}`);
@@ -30,4 +20,17 @@ function check(id) {
     else {
         texto.classList.add("done");
     }
+}
+function createElement(value) {
+    let item = `<div class="todo__item" id="div${listElements.length}">
+  <button class="check" onclick="check(${listElements.length})"></button>
+  <h2 class="text" id="${listElements.length}">${value}</h2>
+  <button class="del" onclick="removeItem(${listElements.length})"></button>
+  <button class="update" onclick="updateItem(${listElements.length})"></button>
+</div>`;
+    listElements.push(value);
+    let ul = document.getElementById("container-item");
+    let li = document.createElement("li");
+    li.innerHTML = item;
+    ul.appendChild(li);
 }
