@@ -21,10 +21,12 @@ const inputText = document.getElementById("input_text");
 var db = localStorage;
 var index;
 function add() {
-    let temp = new Task(inputText.value, false);
-    index = String(listElements.length);
-    createElement(temp);
-    db.setItem(index, JSON.stringify(listElements[Number(index)]));
+    if (notNull()) {
+        let temp = new Task(inputText.value, false);
+        index = String(listElements.length);
+        createElement(temp);
+        db.setItem(index, JSON.stringify(listElements[Number(index)]));
+    }
 }
 function removeItem(id) {
     console.log(id);
@@ -37,9 +39,11 @@ function removeItem(id) {
     location.reload();
 }
 function updateItem(id) {
-    document.getElementById(id).innerText = inputText.value;
-    listElements[Number(id)].descri = inputText.value;
-    db.setItem(id, JSON.stringify(listElements[Number(id)]));
+    if (notNull()) {
+        document.getElementById(id).innerText = inputText.value;
+        listElements[Number(id)].descri = inputText.value;
+        db.setItem(id, JSON.stringify(listElements[Number(id)]));
+    }
 }
 function check(id) {
     const texto = document.getElementById(`${id}`);
@@ -82,6 +86,14 @@ function loadDb() {
                 element.classList.add("done");
             }
         }
+    }
+}
+function notNull() {
+    if (inputText.value != "" && !inputText.value.match(/^\s+$/)) {
+        return true;
+    }
+    else {
+        return false;
     }
 }
 loadDb();

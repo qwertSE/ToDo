@@ -42,12 +42,14 @@ var index: string;
 
 /* Criando um elemento pela primeira vez usando o layout. */
 function add(): void {
-  let temp = new Task(inputText.value, false);
-  index = String(listElements.length);
+  if (notNull()) {
+    let temp = new Task(inputText.value, false);
+    index = String(listElements.length);
 
-  createElement(temp);
+    createElement(temp);
 
-  db.setItem(index, JSON.stringify(listElements[Number(index)]));
+    db.setItem(index, JSON.stringify(listElements[Number(index)]));
+  }
 }
 
 /* Remove o item do array e do localStorage fazendo um reload na pagina para organizalos. */
@@ -61,16 +63,18 @@ function removeItem(id: number): void {
   listElements.forEach(function (element, index) {
     db.setItem(String(index), JSON.stringify(element));
   });
- 
- location.reload();
+
+  location.reload();
 }
 
 /* Atualiza o valor da task selecionada. */
 function updateItem(id: string): void {
-  document.getElementById(id).innerText = inputText.value;
+  if (notNull()) {
+    document.getElementById(id).innerText = inputText.value;
 
-  listElements[Number(id)].descri = inputText.value;
-  db.setItem(id, JSON.stringify(listElements[Number(id)]));
+    listElements[Number(id)].descri = inputText.value;
+    db.setItem(id, JSON.stringify(listElements[Number(id)]));
+  }
 }
 
 /* Marca como completa a task selecionada. */
@@ -125,6 +129,14 @@ function loadDb() {
         element.classList.add("done");
       }
     }
+  }
+}
+
+function notNull() {
+  if (inputText.value != "" && !inputText.value.match(/^\s+$/)) {
+    return true;
+  } else {
+    return false;
   }
 }
 
