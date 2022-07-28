@@ -1,4 +1,3 @@
-
 class Task {
   private description: string;
   private done: boolean;
@@ -24,7 +23,6 @@ class Task {
     this.done = value;
   }
 }
-
 
 /* Variaveis*/
 var listElements: Task[] = [];
@@ -52,10 +50,8 @@ function add(): void {
   db.setItem(index, JSON.stringify(listElements[Number(index)]));
 }
 
-
 /* Remove o item do array e do localStorage fazendo um reload na pagina para organizalos. */
 function removeItem(id: number): void {
-  let element = document.getElementById(`div${id}`);
   console.log(id);
 
   db.removeItem(String(id));
@@ -65,9 +61,8 @@ function removeItem(id: number): void {
   listElements.forEach(function (element, index) {
     db.setItem(String(index), JSON.stringify(element));
   });
-
-  loadDb();
-  location.reload();
+ 
+ location.reload();
 }
 
 /* Atualiza o valor da task selecionada. */
@@ -76,8 +71,6 @@ function updateItem(id: string): void {
 
   listElements[Number(id)].descri = inputText.value;
   db.setItem(id, JSON.stringify(listElements[Number(id)]));
-  loadDb();
-  location.reload();
 }
 
 /* Marca como completa a task selecionada. */
@@ -99,26 +92,26 @@ function check(id: number): void {
 function createElement(obj: Task): void {
   let temp = obj;
 
-  let item = `<div class="todo__item" id="div${listElements.length}">
+  let item = `<div class="container__item" id="div${listElements.length}">
   <button class="check" onclick="check(${listElements.length})"></button>
-  <h2 class="text" id="${listElements.length}">${temp.descri}</h2>
+  <h2 class="form__text" id="${listElements.length}">${temp.descri}</h2>
   <button class="del" onclick="removeItem(${listElements.length})"></button>
   <button class="update" onclick="updateItem(${listElements.length})"></button>
 </div>`;
 
   listElements.push(obj);
-  let ul = document.getElementById("container-item");
+  let ul = document.getElementById("todo__container");
   let li = document.createElement("li");
 
   li.innerHTML = item;
   ul.appendChild(li);
 }
 
-
 /* Função para carregamento do LocalStorage caso exista. */
 function loadDb() {
   let dbSize = db.length;
   let temp;
+  let element: HTMLElement;
 
   if (dbSize !== 0) {
     for (let i = 0; i < dbSize; i++) {
@@ -128,8 +121,8 @@ function loadDb() {
 
       /* Verifica se a task estava marcada como completa e modifica o elemento HTML */
       if (task.isDone) {
-        const texto = document.getElementById(`${i}`);
-        texto.classList.add("done");
+        element = document.getElementById(`${i}`);
+        element.classList.add("done");
       }
     }
   }

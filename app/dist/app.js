@@ -27,7 +27,6 @@ function add() {
     db.setItem(index, JSON.stringify(listElements[Number(index)]));
 }
 function removeItem(id) {
-    let element = document.getElementById(`div${id}`);
     console.log(id);
     db.removeItem(String(id));
     listElements.splice(id, 1);
@@ -35,15 +34,12 @@ function removeItem(id) {
     listElements.forEach(function (element, index) {
         db.setItem(String(index), JSON.stringify(element));
     });
-    loadDb();
     location.reload();
 }
 function updateItem(id) {
     document.getElementById(id).innerText = inputText.value;
     listElements[Number(id)].descri = inputText.value;
     db.setItem(id, JSON.stringify(listElements[Number(id)]));
-    loadDb();
-    location.reload();
 }
 function check(id) {
     const texto = document.getElementById(`${id}`);
@@ -60,14 +56,14 @@ function check(id) {
 }
 function createElement(obj) {
     let temp = obj;
-    let item = `<div class="todo__item" id="div${listElements.length}">
+    let item = `<div class="container__item" id="div${listElements.length}">
   <button class="check" onclick="check(${listElements.length})"></button>
-  <h2 class="text" id="${listElements.length}">${temp.descri}</h2>
+  <h2 class="form__text" id="${listElements.length}">${temp.descri}</h2>
   <button class="del" onclick="removeItem(${listElements.length})"></button>
   <button class="update" onclick="updateItem(${listElements.length})"></button>
 </div>`;
     listElements.push(obj);
-    let ul = document.getElementById("container-item");
+    let ul = document.getElementById("todo__container");
     let li = document.createElement("li");
     li.innerHTML = item;
     ul.appendChild(li);
@@ -75,14 +71,15 @@ function createElement(obj) {
 function loadDb() {
     let dbSize = db.length;
     let temp;
+    let element;
     if (dbSize !== 0) {
         for (let i = 0; i < dbSize; i++) {
             temp = JSON.parse(db.getItem(String(i)));
             let task = new Task(temp["description"], temp["done"]);
             createElement(task);
             if (task.isDone) {
-                const texto = document.getElementById(`${i}`);
-                texto.classList.add("done");
+                element = document.getElementById(`${i}`);
+                element.classList.add("done");
             }
         }
     }

@@ -23,7 +23,7 @@ body {
   height: 500px;
 }
 
-.title {
+.todo__title {
   background-color: #000000;
   color: var(--gold);
 
@@ -42,7 +42,7 @@ li {
   background-color: #000000;
 }
 
-.todo__item {
+.container__item {
   display: flex;
   margin-bottom: 0.3rem;
 }
@@ -101,7 +101,7 @@ li {
   margin: 0.2rem 0 0 0.3rem;
 }
 
-.text {
+.form__text {
   margin: 0 0.5rem 0 0.5rem;
   padding-top: 0.5rem;
   min-width: 200px;
@@ -116,7 +116,7 @@ li {
   text-decoration: line-through 3px;
 }
 
-.todo__text {
+.todo__form {
   display: flex;
   margin-left: 1rem;
 }
