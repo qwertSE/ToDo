@@ -19,14 +19,18 @@
   </head>
   <body>
     <main class="todo">
-      <h2 class="title">ToDo-List</h2>
-      <ul id="container-item"></ul>
-      <form class="todo__text" onSubmit="return false">
-        <input type="text" placeholder="Escreva sua tarefa." id="input_text" />
-        <button class="add" onclick="add()"></button>
+      <h2 class="todo__title">ToDo-List</h2>
+      <ul id="todo__container"></ul>
+      <form class="todo__form" onSubmit="return false">
+        <input
+          type="form__text"
+          placeholder="Escreva sua tarefa."
+          id="input_text"
+          required
+        />
+        <button class="form__btn add" onclick="add()"></button>
       </form>
     </main>
-    <script src="./app/dist/app.js">
-    </script>
+    <script src="./app/dist/app.js"></script>
   </body>
 </html>
