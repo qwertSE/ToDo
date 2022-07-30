@@ -1,5 +1,5 @@
 class Task {
-    constructor(description, done) {
+    constructor(description, done = false) {
         this.description = description;
         this.done = done;
     }
@@ -23,7 +23,7 @@ var db = localStorage;
 var index;
 function add() {
     if (notNull()) {
-        let temp = new Task(inputText.value, false);
+        let temp = new Task(inputText.value);
         index = String(listElements.length);
         createElement(temp);
         db.setItem(index, JSON.stringify(listElements[Number(index)]));

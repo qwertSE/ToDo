@@ -2,7 +2,7 @@ class Task {
   private description: string;
   private done: boolean;
 
-  constructor(description: string, done: boolean) {
+  constructor(description: string, done: boolean = false) {
     this.description = description;
     this.done = done;
   }
@@ -44,7 +44,7 @@ var index: string;
 /* Criando um elemento pela primeira vez usando o layout. */
 function add(): void {
   if (notNull()) {
-    let temp = new Task(inputText.value, false);
+    let temp = new Task(inputText.value);
     index = String(listElements.length);
 
     createElement(temp);
