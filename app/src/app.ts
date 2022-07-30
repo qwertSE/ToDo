@@ -27,6 +27,7 @@ class Task {
 /* Variaveis*/
 var listElements: Task[] = [];
 const inputText = document.getElementById("input_text") as HTMLInputElement;
+const errorInput = document.getElementById("todo__error");
 var db = localStorage;
 var index: string;
 
@@ -56,7 +57,6 @@ function add(): void {
 function removeItem(id: number): void {
   console.log(id);
 
-  db.removeItem(String(id));
   listElements.splice(id, 1);
   db.clear();
 
@@ -136,7 +136,11 @@ function notNull() {
   if (inputText.value != "" && !inputText.value.match(/^\s+$/)) {
     return true;
   } else {
-    return false;
+    setTimeout(() => {
+      errorInput.style.display = "none";
+      return false;
+    }, 3000);
+    errorInput.style.display = "block";
   }
 }
 

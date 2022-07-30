@@ -18,6 +18,7 @@ class Task {
 }
 var listElements = [];
 const inputText = document.getElementById("input_text");
+const errorInput = document.getElementById("todo__error");
 var db = localStorage;
 var index;
 function add() {
@@ -30,7 +31,6 @@ function add() {
 }
 function removeItem(id) {
     console.log(id);
-    db.removeItem(String(id));
     listElements.splice(id, 1);
     db.clear();
     listElements.forEach(function (element, index) {
@@ -93,7 +93,11 @@ function notNull() {
         return true;
     }
     else {
-        return false;
+        setTimeout(() => {
+            errorInput.style.display = "none";
+            return false;
+        }, 3000);
+        errorInput.style.display = "block";
     }
 }
 loadDb();

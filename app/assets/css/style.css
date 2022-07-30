@@ -1,6 +1,7 @@
 :root {
   --font: "Roboto", sans-serif;
   --gold: #fac702;
+  --black: #000;
 }
 
 body {
@@ -24,7 +25,7 @@ body {
 }
 
 .todo__title {
-  background-color: #000000;
+  background-color: var(--black);
   color: var(--gold);
 
   width: 310px;
@@ -39,7 +40,7 @@ body {
 }
 
 li {
-  background-color: #000000;
+  background-color: var(--black);
 }
 
 .container__item {
@@ -76,7 +77,7 @@ li {
   background-repeat: no-repeat;
   background-size: cover;
 
-  border: 1px solid #000000;
+  border: 1px solid var(--black);
 
   border-radius: 50%;
 
@@ -91,8 +92,7 @@ li {
   background-repeat: no-repeat;
   background-size: cover;
 
-  border: 1px solid #000000;
-
+  border: 1px solid var(--black);
   border-radius: 50%;
 
   height: 25px;
@@ -104,6 +104,7 @@ li {
 .form__text {
   margin: 0 0.5rem 0 0.5rem;
   padding-top: 0.5rem;
+  
   min-width: 200px;
 
   color: var(--gold);
@@ -127,4 +128,17 @@ li {
 
   width: 240px;
   height: 25px;
+}
+
+.error {
+  background-color: var(--black);
+  display: none;
+
+  margin-top: 0.2rem;
+
+  color: red;
+  font-size: 1.2em;
+  font-family: var(--font);
+  font-weight: bolder;
+  letter-spacing: 2px;
 }
