@@ -141,4 +141,5 @@ li {
   font-family: var(--font);
   font-weight: bolder;
   letter-spacing: 2px;
+  text-align: center;
 }
