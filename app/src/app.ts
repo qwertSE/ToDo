@@ -132,6 +132,7 @@ function loadDb() {
   }
 }
 
+/* Verifica se o input está vazio ou contém só espaços. */
 function notNull() {
   if (inputText.value != "" && !inputText.value.match(/^\s+$/)) {
     return true;
