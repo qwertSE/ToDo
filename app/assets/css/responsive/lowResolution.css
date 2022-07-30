@@ -1,0 +1,45 @@
+@media screen and (max-width: 300px) {
+
+  .todo__title {
+    width: 260px;
+  }
+
+  .todo__form {
+    width: 240px;
+  }
+
+  .container__item {
+    width: 260px;
+  }
+
+  .form__text {
+    min-width: 0px;
+    padding-top: 0.15rem;
+    width: 180px;
+  }
+
+  .check {
+    height: 20px;
+    width: 20px;
+    margin: 0.12rem 0 0 0rem;
+    border-radius: 20%;
+  }
+
+  .del {
+    height: 20px;
+    width: 20px;
+    margin: 0.12rem 0 0 0rem;
+    border-radius: 20%;
+  }
+
+  .update {
+    height: 20px;
+    width: 20px;
+    margin: 0.12rem 0 0 0.1rem;
+    border-radius: 20%;
+  }
+
+  .error{
+    font-size: 0.8em;
+  }
+}
